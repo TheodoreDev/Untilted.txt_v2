@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untilted.txt</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="main">
+        <div class="container a-container" id="a-container">
+            <form class="form" id="a-form" method="post" action="/register">
+                <h2 class="form_title title">Create Account</h2>
+                <input class="form__input" type="text" placeholder="Name" name ="username">
+                <input class="form__input" type="text" placeholder="Email" name="email">
+                <input class="form__input" type="password" placeholder="Password" name="password">
+                <button class="form__button button switch-btn" type='submit' name ="signup">SIGN UP</button>
+            </form>
+        </div>
+        <div class="container b-container" id="b-container">
+            <form class="form" id="b-form" method="post" action="/login">
+                <h2 class="form_title title">Sign in to Website</h2>
+                <input class="form__input" type="text" placeholder="Email" name = "email">
+                <input class="form__input" type="password" placeholder="Password" name = "password"><a class="form__link">Forgot your password?</a>
+                <button class="form__button button switch-btn" name = "signin">LOG IN</button>
+            </form>
+        </div>
+        <div class="switch" id="switch-cnt">
+            <div class="switch__circle"></div>
+            <div class="switch__circle switch__circle--t"></div>
+            <div class="switch__container" id="switch-c1">
+                <h2 class="switch__title title">Welcome Back !</h2>
+                <p class="switch__description description">To keep connected with us please login with your personal info</p>
+                <button class="switch__button button switch-btn">GO TO LOG IN</button>
+            </div>
+            <div class="switch__container is-hidden" id="switch-c2">
+                <h2 class="switch__title title">Hello Friend !</h2>
+                <p class="switch__description description">Enter your personal details and start journey with us</p>
+                <button class="switch__button button switch-btn">GO TO SIGN UP</button>
+            </div>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
