@@ -41,9 +41,26 @@ let db = new sqlite3.Database(`./Ressources/DB/${config.dbNAME}.db`, err => {
         console.log("Database started.")
     }
 })
+db.all('SELECT * FROM user', [], (error, rows) => {
+    if(error){
+        throw error
+    }
+    rows.forEach((row) => {
+        users.push({
+            username: row.username,
+            password: row.password,
+            email: row.email,
+            admin: row.admin,
+            id: row.id
+        })
+    })
+})
+
+var is_user_existing = " "
 
 app.get('/', checkNotAuthenticated, (req, res) => {
-    res.render("./html/index.ejs")
+    res.render("./html/index.ejs", {is_existing: is_user_existing})
+    is_user_existing = " "
 })
 
 app.get('/home', checkAuthenticated, (req, res) => {
@@ -58,14 +75,40 @@ app.post('/login', checkNotAuthenticated, passport.authenticate("local", {
 
 app.post('/register', checkNotAuthenticated, async (req, res) => {
     try {
-        const hashedPassword = await bcrypt.hash(req.body.password, 10)
-        users.push({
-            id: Date.now().toString(),
-            username: req.body.username,
-            email: req.body.email,
-            password: hashedPassword
+        db.all('SELECT * FROM user', [], (error, rows) => {
+            if(error){
+                throw error
+            }
+            rows.forEach((row) => {
+                if(!users.find(user => user.username === row.username)) {
+                    users.push({
+                        username: row.username,
+                        password: row.password,
+                        email: row.email,
+                        admin: row.admin,
+                        id: row.id
+                    })
+                }
+            })
         })
-        res.redirect('/')
+        if(users.find(user => user.username === req.body.username) 
+           || users.find(user => user.email === req.body.email)){
+            is_user_existing = "This user already exist."
+            res.redirect('/')
+        } else {
+            const id = Date.now().toString()
+            const hashedPassword = await bcrypt.hash(req.body.password, 10)
+            users.push({
+                username: req.body.username,
+                password: hashedPassword,
+                email: req.body.email,
+                admin: 1,
+                id: id,
+            })
+            db.all(`INSERT INTO "user" VALUES ("${req.body.username}", "${hashedPassword}", "${req.body.email}", 1, "${id}")`)
+            is_user_existing = "User well created"
+            res.redirect('/')
+        }
     } catch {
         res.redirect('/')
     }
@@ -76,6 +119,7 @@ app.delete('/logout', (req, res, next) => {
         if (err) {
             return next(err)
         }
+        is_user_existing = " "
         res.redirect('/')
     })
 })

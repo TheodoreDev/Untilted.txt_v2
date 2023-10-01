@@ -11,6 +11,7 @@
         <div class="container a-container" id="a-container">
             <form class="form" id="a-form" method="post" action="/register">
                 <h2 class="form_title title">Create Account</h2>
+                <%= is_existing %>
                 <input class="form__input" id="username type="text" placeholder="Username" name ="username" required>
                 <input class="form__input" id="email" type="email" placeholder="Email" name="email" required>
                 <input class="form__input" id="password" type="password" placeholder="Password" name="password" required>
