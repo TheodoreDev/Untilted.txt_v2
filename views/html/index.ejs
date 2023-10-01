@@ -11,11 +11,11 @@
         <div class="container a-container" id="a-container">
             <form class="form" id="a-form" method="post" action="/register">
                 <h2 class="form_title title">Create Account</h2>
-                <input class="form__input" id="username type="text" placeholder="Username" name ="username">
-                <input class="form__input" id="email" type="email" placeholder="Email" name="email">
-                <input class="form__input" id="password" type="password" placeholder="Password" name="password">
-                <!--<input class="form__input" type="date" placeholder="Your birthday" name="birthday">-->
-                <button class="form__button button switch-btn" type='submit' name ="signup">SIGN UP</button>
+                <input class="form__input" id="username type="text" placeholder="Username" name ="username" required>
+                <input class="form__input" id="email" type="email" placeholder="Email" name="email" required>
+                <input class="form__input" id="password" type="password" placeholder="Password" name="password" required>
+                <!--<input class="form__input" type="date" placeholder="Your birthday" name="birthday" required>-->
+                <button class="form__button button" type='submit' name ="signup">SIGN UP</button>
             </form>
         </div>
         <div class="container b-container" id="b-container">
@@ -24,10 +24,10 @@
                 <% if(messages.error) { %>
                     <%= messages.error %>
                 <% } %>
-                <input class="form__input" id="username" type="username" placeholder="Username" name = "username">
-                <input class="form__input" id="password" type="password" placeholder="Password" name = "password">
+                <input class="form__input" id="username" type="username" placeholder="Username" name = "username" required>
+                <input class="form__input" id="password" type="password" placeholder="Password" name = "password" required>
                 <a class="form__link">Forgot your password?</a>
-                <button class="form__button button switch-btn" name = "signin">LOG IN</button>
+                <button class="form__button button" name = "signin">LOG IN</button>
             </form>
         </div>
         <div class="switch" id="switch-cnt">

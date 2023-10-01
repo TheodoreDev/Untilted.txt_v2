@@ -35,3 +35,4 @@ let mainF = (e) => {
 }
 
 window.addEventListener("load", mainF);
+module.exports = changeForm
