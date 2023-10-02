@@ -1,4 +1,82 @@
-<h1>Well connected <%= name %></h1>
-<form action="/logout?_method=DELETE" method="POST">
-    <button type="submit">Log Out</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untilted.txt | Home</title>
+    <link rel="icon" href="Untilted_logo.ico">
+
+    <link rel="stylesheet" href="home.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo-details">
+            <i class='bx bxs-file-txt'></i>
+            <span class="logo_name">Untilted.txt</span>
+        </div>
+        <ul class="nav-links">
+            <li class="navbar_li">
+                <a href="#"><i class='bx bxs-grid'></i><span class="link_name">Home</span></a>
+                <ul class="sub-menu blank">
+                    <li><a href="#" class="link_name">Home</a></li>
+                </ul>
+            </li>
+            <li class="navbar_li">
+                <a href="#"><i class='bx bxs-collection' ></i></i><span class="link_name">Forums</span></a>
+                <ul class="sub-menu blank">
+                    <li><a href="#" class="link_name">Forums</a></li>
+                </ul>
+            </li>
+            <li class="navbar_li">
+                <div class="icon-link">
+                    <a href="#"><i class='bx bx-cart-download'></i><span class="link_name">Apps</span></a>
+                    <i class='bx bx-chevron-down arrow' ></i>
+                </div>
+                <ul class="sub-menu">
+                    <li><a href="#" class="link_name">Apps</a></li>
+                    <li><a href="#">Browse</a></li>
+                    <li><a href="#">Publish</a></li>
+                </ul>
+            </li>
+            <li class="navbar_li">
+                <div class="icon-link">
+                    <a href="#"><i class='bx bxs-megaphone' ></i><span class="link_name">Repport</span></a>
+                    <i class='bx bx-chevron-down arrow' ></i>
+                </div>
+                <ul class="sub-menu">
+                    <li><a href="#" class="link_name">Repport</a></li>
+                    <li><a href="#">A bug</a></li>
+                    <li><a href="#">An good idea</a></li>
+                </ul>
+            </li>
+            
+            <li>
+                <div class="profil">
+                    <div class="profil-content">
+                        <a href="/preferences"><img src="profil-default.png" alt="profile"></a>
+                    </div>
+                    <div class="info">
+                        <div class="profil-name"><%= name %></div>
+                        <div class="type-user">
+                            <% if(user_type === 1) { %>
+                                Admin
+                            <% } else { %>
+                                User
+                            <% } %>
+                        </div>
+                    </div>
+                    <form action="/logout?_method=DELETE" method="POST">
+                        <button type="submit"><img src="log-out.png" ></button>
+                    </form>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <script src="home.js"></script>
+</body>
+</html>

@@ -21,6 +21,7 @@ const users = []
 app.use(express.static("views/html"));
 app.use(express.static("views/steelsheet"))
 app.use(express.static("views/js"))
+app.use(express.static("Ressources/img"))
 
 app.set('view-engine', 'ejs')
 app.use(express.urlencoded({ extended: false }))
@@ -64,7 +65,11 @@ app.get('/', checkNotAuthenticated, (req, res) => {
 })
 
 app.get('/home', checkAuthenticated, (req, res) => {
-    res.render("./html/home.ejs", {name: req.user.username})
+    res.render("./html/home.ejs", {name: req.user.username, user_type: req.user.admin})
+})
+
+app.get('/preferences', checkAuthenticated, (req, res) => {
+    res.render("./html/user-preferences.ejs", {name: req.user.username, user_type: req.user.admin})
 })
 
 app.post('/login', checkNotAuthenticated, passport.authenticate("local", {
