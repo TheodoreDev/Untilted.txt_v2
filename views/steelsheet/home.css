@@ -5,6 +5,23 @@
     font-family: 'Poppins', sans-serif;
 }
 
+.overlay {
+    visibility: hidden;
+    transition: all 0.4s ease-out;
+}
+
+.overlay.active {
+    visibility: visible;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgb(216, 216, 216);
+    width: 100%;
+    height: 100%;
+    opacity: 0.3;
+    transition: all 0.4s ease-in;
+}
+
 .sidebar {
     position: fixed;
     top: 0;
@@ -169,16 +186,17 @@
     font-size: 12px;
 }
 
-.sidebar .profil form button {
+.sidebar .profil .form .button_disconnect {
     margin-left: 10px;
     border: none;
     background: transparent;
     padding: 0;
     right: 0;
     transition: all 0.4s ease;
+    cursor: pointer;
 }
 
-.sidebar .profil form button img {
+.sidebar .profil .form .button_disconnect img {
     height: 30px;
     width: 30px;
     object-fit: cover;

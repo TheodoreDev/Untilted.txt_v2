@@ -7,3 +7,12 @@ for (var i = 0; i < arrow.length; i++) {
         arrowParent.classList.toggle("showMenu")
     })
 }
+
+let disconnect = document.querySelectorAll(".button_disconnect")
+let overlay = document.querySelector(".overlay")
+
+for(var i = 0; i < disconnect.length; i++) {
+    disconnect[i].addEventListener("click", () => {
+        overlay.classList.add("active")
+    })
+}
