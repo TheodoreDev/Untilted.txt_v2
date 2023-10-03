@@ -7,19 +7,86 @@
 
 .overlay {
     visibility: hidden;
-    transition: all 0.4s ease-out;
-}
-
-.overlay.active {
-    visibility: visible;
     position: fixed;
     top: 0;
     left: 0;
     background: rgb(216, 216, 216);
     width: 100%;
     height: 100%;
+    opacity: 0;
+    transition: all 0.4s ease-out;
+}
+
+.overlay.active {
+    visibility: visible;
     opacity: 0.3;
     transition: all 0.4s ease-in;
+}
+
+.deco_popup {
+    visibility: hidden;
+    position: fixed;
+    height: 0;
+    width: 0;
+    top: 50%;
+    left: -400px;
+    background: #fff;
+    border-radius: 10%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    z-index: auto;
+    transition: all 0.4s ease-in;
+}
+
+.deco_popup.active {
+    width: 400px;
+    height: 200px;
+    top: calc(50% - 200px/2);
+    left: calc(50% - 400px/2);
+    visibility: visible;
+}
+
+.deco_popup .content {
+    text-align: center;
+}
+
+.deco_popup .content .buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+.deco_popup .content .buttons button {
+    background: red;
+    color: #fff;
+    border-radius: 20px;
+    padding: 5px;
+    border: none;
+    box-shadow: none;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.deco_popup .content .buttons .close_popup {
+    background: rgb(170, 170, 170);
+    color: #fff;
+    border-radius: 20px;
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    cursor: pointer;
+}
+
+@media (max-width: 420px){
+    .deco_popup.active {
+        height: 250px;
+        width: 200px;
+        top: calc(50% - 250px/2);
+        left: calc(50% - 200px/2);
+    }
 }
 
 .sidebar {
@@ -68,6 +135,10 @@
     position: relative;
     list-style: none;
     transition: all 0.4s ease;
+}
+
+.sidebar .nav-links li.nowin {
+    background: #1d1b31;
 }
 
 .sidebar .nav-links li:hover{

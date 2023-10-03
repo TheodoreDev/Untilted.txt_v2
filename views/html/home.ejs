@@ -20,10 +20,10 @@
             <span class="logo_name">Untilted.txt</span>
         </div>
         <ul class="nav-links">
-            <li class="navbar_li">
-                <a href="#"><i class='bx bxs-grid'></i><span class="link_name">Home</span></a>
+            <li class="navbar_li nowin">
+                <a href="/home"><i class='bx bxs-grid'></i><span class="link_name">Home</span></a>
                 <ul class="sub-menu blank">
-                    <li><a href="#" class="link_name">Home</a></li>
+                    <li><a href="/home" class="link_name">Home</a></li>
                 </ul>
             </li>
             <li class="navbar_li">
@@ -70,9 +70,6 @@
                             <% } %>
                         </div>
                     </div>
-                    <!--<form action="/logout?_method=DELETE" method="POST">
-                        <button type="submit"><img src="log-out.png" ></button>
-                    </form>-->
                     <div class="form">
                         <div class="button_disconnect"><img src="log-out.png" ></div>
                     </div>
@@ -81,6 +78,17 @@
         </ul>
     </div>
     <div class="overlay"></div>
+    <div class="deco_popup">
+        <div class="content">
+            <p>Do you want to be disconnected ?</p>
+            <div class="buttons">
+                <form action="/logout?_method=DELETE" method="POST">
+                    <button type="submit">Disconnect</button>
+                </form>
+                <div class="close_popup">Close</div>
+            </div>
+        </div>
+    </div>
     <script src="home.js"></script>
 </body>
 </html>
