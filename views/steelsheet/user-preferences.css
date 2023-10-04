@@ -29,6 +29,7 @@
     border: 2px solid rgb(172, 172, 172);
     border-radius: 20px;
     box-shadow: 10px 10px 10px #d1d9e6, -10px -10px 10px #f9f9f9;
+    transition: all 0.2s ease;
 }
 
 h1 {
@@ -50,11 +51,10 @@ h1 {
     height: 200px;
 }
 
-.pp {
+.change_profil_img .pp {
     height: 200px;
     width: 200px;
     position: absolute;
-    z-index: 1;
 }
 
 .change_profil_img .pp img {
@@ -75,7 +75,6 @@ h1 {
     justify-content: center;
     align-items: center;
     position: relative;
-    z-index: 2;
     cursor: pointer;
     transition: all 0.2s ease;
 }
@@ -87,4 +86,115 @@ h1 {
 
 .change_photo_overlay i.active {
     font-size: 50px;
+}
+
+.overlay {
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 0%;
+    width: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    transition: all 0.2s ease;
+}
+
+.pp_form_popup {
+    height: 90%;
+    width: 40%;
+    background: white;
+    color: black;
+    border: 2px solid rgb(109, 109, 109);
+    border-radius: 30px;
+    transition: all 0.2s ease;
+}
+
+.pp_form_popup .pp {
+    padding-top: 20px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.pp_form_popup .pp img{
+    height: 150px;
+    width: 150px;
+}
+
+.pp_form_popup .file {
+    padding-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pp_form_popup .file form {
+    border-radius: 5px;
+    border: 1px solid red;
+    background: salmon;
+    padding: 20px 40px 20px 40px;
+}
+
+.pp_form_popup .file form button {
+    color: white;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 10px;
+    background: green;
+    border: none;
+}
+
+.pp_form_popup .close {
+    width: 100%;
+    margin-top: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pp_form_popup .close .circle_close {
+    cursor: pointer;
+    border: 2px solid black;
+    border-radius: 50%;
+    height: 44px;
+}
+
+.pp_form_popup .close .circle_close i {
+    font-size: 40px;
+}
+
+.overlay.active {
+    visibility: visible;
+    height: 100%;
+    width: 100%;
+}
+
+@media (max-width: 1000px){
+    .pp_form_popup {
+        width: 60%;
+    }
+}
+@media (max-width: 800px){
+    .preferences {
+        width: 70%;
+    }
+}
+@media (max-width: 740px){
+    .pp_form_popup {
+        width: 80%;
+    }
+}
+@media (max-width: 650px){
+    .preferences {
+        width: 100%;
+    }
+}
+@media (max-width: 550px){
+    .pp_form_popup {
+        width: 100%;
+    }
 }
