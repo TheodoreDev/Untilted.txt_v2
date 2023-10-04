@@ -8,11 +8,28 @@
 
     <link rel="stylesheet" href="user-preferences.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
         <a href="/home" class="QUIT"><i class='bx bx-left-arrow-circle'></i></a>
-        <h1 class="UserName"><%= name %></h1>
+        <div class="preferences">
+            <h1 class="UserName"><%= name %></h1>
+            <div class="profile">
+                <button class="change_profil_img">
+                    <div class="pp">
+                        <img src="profil-default.png" alt="profile">
+                    </div>
+                    <div class="change_photo_overlay">
+                        <i class='bx bxs-camera-plus'></i>
+                    </div>
+                </button>
+            </div>
+        </div>
     </div>
+    <script src="user-preferences.js"></script>
 </body>
 </html>

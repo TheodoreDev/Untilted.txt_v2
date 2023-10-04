@@ -2,12 +2,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
 .container {
     display: flex;
     width: 100%;
-    height: auto;
     justify-content: center;
     padding-top: 20px;
 }
@@ -24,7 +24,67 @@
     color: black;
 }
 
+.preferences {
+    width: 50%;
+    border: 2px solid rgb(172, 172, 172);
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px #d1d9e6, -10px -10px 10px #f9f9f9;
+}
+
 h1 {
-    width: 300px;
+    width: 100%;
     text-align: center;
+    padding: 20px;
+    color: rgb(68, 68, 68);
+}
+
+.profile {
+    display: flex;
+    justify-content: center;
+}
+
+.change_profil_img {
+    border: none;
+    background: transparent;
+    cursor: default;
+    height: 200px;
+}
+
+.pp {
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    z-index: 1;
+}
+
+.change_profil_img .pp img {
+    height: 200px;
+    width: 200px;
+    cursor: pointer;
+}
+
+.change_photo_overlay {
+    visibility: hidden;
+    color: azure;
+    background: gray;
+    opacity: 0;
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.change_photo_overlay.active {
+    visibility: visible;
+    opacity: 0.5;
+}
+
+.change_photo_overlay i.active {
+    font-size: 50px;
 }

@@ -39,7 +39,7 @@ let db = new sqlite3.Database(`./Ressources/DB/${config.dbNAME}.db`, err => {
     if(err){
         throw err
     }else {
-        console.log("Database started.")
+        console.log(`Database ${config.dbNAME} started.`)
     }
 })
 db.all('SELECT * FROM user', [], (error, rows) => {
@@ -110,7 +110,7 @@ app.post('/register', checkNotAuthenticated, async (req, res) => {
                 admin: 1,
                 id: id,
             })
-            db.all(`INSERT INTO "user" VALUES ("${req.body.username}", "${hashedPassword}", "${req.body.email}", 1, "${id}")`)
+            db.all(`INSERT INTO "user" VALUES ("${req.body.username}", "${hashedPassword}", "${req.body.email}", 0, "${id}")`)
             is_user_existing = "User well created"
             res.redirect('/')
         }
