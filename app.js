@@ -22,6 +22,7 @@ app.use(express.static("views/html"));
 app.use(express.static("views/steelsheet"))
 app.use(express.static("views/js"))
 app.use(express.static("Ressources/img"))
+app.use(express.static("./Ressources/DB/profil_img"))
 
 app.set('view-engine', 'ejs')
 app.use(express.urlencoded({ extended: false }))
@@ -68,7 +69,7 @@ app.get('/home', checkAuthenticated, (req, res) => {
     res.render("./html/home.ejs", {name: req.user.username, user_type: req.user.admin})
 })
 
-app.get('/preferences', checkAuthenticated, (req, res) => {
+app.get('/preferences', checkAuthenticated, async (req, res) => {
     res.render("./html/user-preferences.ejs", {name: req.user.username, user_type: req.user.admin})
 })
 
