@@ -245,6 +245,10 @@
     transition:  all 0.5s ease;
 }
 
+.pp-status{
+    display: none;
+}
+
 .sidebar .profil .profil-name,
 .sidebar .profil .type-user{
     color: #fff;

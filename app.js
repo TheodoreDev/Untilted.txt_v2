@@ -9,12 +9,13 @@ const methodOverride = require('method-override')
 
 const config = require("./config.json");
 
-const initializePassport = require('./passport-config')
+const initializePassport = require('./functions/passport-config')
 initializePassport(
   passport,
   username => users.find(user => user.username === username),
   id => users.find(user => user.id === id)
 )
+const is_file_existing = require("./functions/is-file-existing")
 
 const users = []
 
@@ -66,11 +67,13 @@ app.get('/', checkNotAuthenticated, (req, res) => {
 })
 
 app.get('/home', checkAuthenticated, (req, res) => {
-    res.render("./html/home.ejs", {name: req.user.username, user_type: req.user.admin})
+    var is_img_profile = is_file_existing(req.user.username)
+    res.render("./html/home.ejs", {name: req.user.username, user_type: req.user.admin, pp_status: is_img_profile})
 })
 
 app.get('/preferences', checkAuthenticated, async (req, res) => {
-    res.render("./html/user-preferences.ejs", {name: req.user.username, user_type: req.user.admin})
+    var is_img_profile = is_file_existing(req.user.username)
+    res.render("./html/user-preferences.ejs", {name: req.user.username, user_type: req.user.admin, pp_status: is_img_profile})
 })
 
 app.post('/login', checkNotAuthenticated, passport.authenticate("local", {

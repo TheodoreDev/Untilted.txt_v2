@@ -29,15 +29,14 @@ for(var i = 0; i < close_popup.length; i++) {
 
 var actual_user = document.querySelector(".profil-name").textContent
 var profil_imgs = document.querySelectorAll(".pp_img")
+var is_pp = document.querySelector(".pp-status").textContent
 
 for (var i = 0; i < profil_imgs.length; i++) {
     const profil_img = profil_imgs[i]
-    var pp_img = `${actual_user}_pp.png`
-    try {
-        pp_img = `${actual_user}_pp.png`
+    if (is_pp === "true") {
+        var pp_img = `${actual_user}_pp.png`
         profil_img.src = pp_img
-    } catch (error) {
-        pp_img = 'profil-default.png'
-        profil_img.src = pp_img
+    } else {
+        profil_img.src = 'profil-default.png'
     }
 }

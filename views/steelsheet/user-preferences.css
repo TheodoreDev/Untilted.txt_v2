@@ -57,6 +57,10 @@ h1 {
     position: absolute;
 }
 
+.change_profil_img .pp p{
+    display: none;
+}
+
 .change_profil_img .pp img {
     height: 200px;
     width: 200px;
