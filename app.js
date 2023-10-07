@@ -6,8 +6,17 @@ const passport = require("passport");
 const flash = require("express-flash");
 const session = require("express-session");
 const methodOverride = require('method-override')
+const multer = require("multer")
 
 const config = require("./config.json");
+const storage = multer.diskStorage({
+    destination : (req, file, cb) => {
+        cb(null, "./Ressources/DB/profil_img")
+    },
+    filename : (req, file, cb) => {
+        cb(null, `${req.user.username}_pp.png`)
+    }
+})
 
 const initializePassport = require('./functions/passport-config')
 initializePassport(
@@ -16,6 +25,8 @@ initializePassport(
   id => users.find(user => user.id === id)
 )
 const is_file_existing = require("./functions/is-file-existing")
+const checkAuthenticated = require("./functions/Authenticate/checkAuthenticated")
+const checkNotAuthenticated = require("./functions/Authenticate/checkNotAuthenticated")
 
 const users = []
 
@@ -58,6 +69,8 @@ db.all('SELECT * FROM user', [], (error, rows) => {
         })
     })
 })
+
+const upload = multer({storage : storage});
 
 var is_user_existing = " "
 
@@ -123,6 +136,10 @@ app.post('/register', checkNotAuthenticated, async (req, res) => {
     }
 })
 
+app.post('/upload_pp', checkAuthenticated, upload.single("file_upload"), (req, res) => {
+    res.redirect('/preferences')
+})
+
 app.delete('/logout', (req, res, next) => {
     req.logOut((err) => {
         if (err) {
@@ -132,21 +149,6 @@ app.delete('/logout', (req, res, next) => {
         res.redirect('/')
     })
 })
-
-function checkAuthenticated(req, res, next) {
-    if (req.isAuthenticated()) {
-      return next()
-    }
-  
-    res.redirect('/')
-}
-
-function checkNotAuthenticated(req, res, next) {
-    if (req.isAuthenticated()) {
-      return res.redirect('/home')
-    }
-    next()
-}  
 
 app.listen(config.devPort, function() {
     console.log(`Listen on port ${config.devPort}`)

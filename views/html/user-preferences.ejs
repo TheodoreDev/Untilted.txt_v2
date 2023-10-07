@@ -45,8 +45,8 @@
                 <img src='profil-default.png' alt="profile" class="pp_img">
             </div>
             <div class="file">
-                <form action="" method="POST">
-                    <input type="file">
+                <form action="/upload_pp" method="POST" enctype="multipart/form-data">
+                    <input type="file" name="file_upload">
                     <button type="submit">Change</button>
                 </form>
             </div>

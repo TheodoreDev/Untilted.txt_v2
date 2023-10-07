@@ -183,10 +183,12 @@
     margin-top: -10px;
     background: #1d1b31;
     display: none;
+    transition: all 0.3s ease;
 }
 
 .sidebar .nav-links li.showMenu .sub-menu {
     display: block;
+    transition: all 0.3s ease;
 }
 
 .sidebar .nav-links li .sub-menu a {
