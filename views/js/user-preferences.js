@@ -19,6 +19,7 @@ close_popup_pp.addEventListener("click", () => {
 })
 
 const theme_switcher = document.querySelector('.theme-switcher');
+const theme_mod = document.querySelector(".theme_mod")
 
 if (theme_switcher.checked) {
     document.body.classList.remove("light-theme")
@@ -31,9 +32,12 @@ theme_switcher.addEventListener("click", () => {
     if (theme_switcher.checked) {
         document.body.classList.remove("light-theme")
         document.body.classList.add("dark-theme")
+        theme_mod.textContent = "Dark"
+
     } else {
         document.body.classList.remove("dark-theme")
         document.body.classList.add("light-theme")
+        theme_mod.textContent = "Light"
     }
 })
 

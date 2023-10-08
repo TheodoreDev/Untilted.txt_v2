@@ -103,6 +103,7 @@ app.get('/preferences', checkAuthenticated, async (req, res) => {
         pp_status: is_img_profile,
         birthday: req.user.birthday,
         checkbox: checkbox,
+        theme: req.user.theme,
     })
 })
 
