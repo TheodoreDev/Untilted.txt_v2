@@ -13,9 +13,7 @@ body {
     display: flex;
     position: absolute;
     width: 100%;
-    height: 100%;
     justify-content: center;
-    align-items: center;
     background: var(--bgcolor);
     color: var(--fontcolor);
 }
@@ -34,10 +32,10 @@ body {
 
 .preferences {
     width: 50%;
-    height: auto;
     border: 2px solid var(--bordercolor);
     border-radius: 20px;
     box-shadow: 10px 10px 10px var(--shadowcolor1), -10px -10px 10px var(--shadowcolor2);
+    margin: 20px 0 20px 0;
     transition: all 0.2s ease;
 }
 
@@ -195,6 +193,7 @@ h1 {
 
 .other_pref {
     padding-top: 30px;
+    padding-bottom: 20px;
 }
 
 .one_pref {
@@ -270,6 +269,20 @@ h1 {
 .switch input:checked + span:before {
     background: rgb(223, 217, 217);
 	left: 34px;
+}
+
+.button_change {
+    display: flex;
+    justify-content: center;
+}
+
+.button_change button {
+    background: rgb(0, 216, 0);
+    border: 2px solid rgb(0, 179, 0);
+    border-radius: 30px;
+    padding: 5px 10px 5px 10px;
+    color: white;
+    cursor: pointer;
 }
 
 .delete-account {

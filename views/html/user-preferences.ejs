@@ -31,7 +31,7 @@
             </div>
             <hr>
             <div class="other_pref">
-                <form action="" method="POST">
+                <form action="/update-preferences" method="POST">
                     <div class="one_pref">
                         <div class="now">
                             <h3>Username :</h3>
@@ -74,9 +74,15 @@
                             <h3>Password :</h3>
                         </div>
                         <div class="inputs">
-                            <input type="password" name="password" class="all-input" placeholder="old password">
-                            <input type="password" name="new-password" class="all-input" placeholder="new password">
+                            <input type="password" name="new_password" class="all-input" placeholder="new password">
                         </div>
+                    </div>
+                    <div class="one_pref">
+                        <p>Enter your password before changing</p>
+                        <input type="password" name="password" class="all-input" placeholder="password" required>
+                    </div>
+                    <div class="button_change">
+                        <button type="submit">Apply Changes</button>
                     </div>
                 </form>
             </div>

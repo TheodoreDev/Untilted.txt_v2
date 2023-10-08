@@ -25,6 +25,7 @@ initializePassport(
   id => users.find(user => user.id === id)
 )
 const is_file_existing = require("./functions/is-file-existing")
+const rename_file = require("./functions/rename-file")
 const checkAuthenticated = require("./functions/Authenticate/checkAuthenticated")
 const checkNotAuthenticated = require("./functions/Authenticate/checkNotAuthenticated")
 
@@ -161,6 +162,61 @@ app.post('/register', checkNotAuthenticated, async (req, res) => {
 
 app.post('/upload_pp', checkAuthenticated, upload.single("file_upload"), (req, res) => {
     res.redirect('/preferences')
+})
+
+app.post('/update-preferences', checkAuthenticated, async (req, res) => {
+    const act_user = users.indexOf(users.find(user => user.username === req.user.username))
+
+    var newUsername = req.user.username
+    if (req.body.username) {
+        newUsername = req.body.username
+    }
+    var newEmail = req.user.email
+    if (req.body.email) {
+        newEmail = req.body.email
+    }
+    var newBirthday = req.user.birthday
+    if (req.body.birthday) {
+        newBirthday = req.body.birthday
+    }
+    var newTheme = req.user.theme
+    if (req.body.theme === "on") {
+        newTheme = 1
+    } else {
+        newTheme = 0
+    }
+    var newPassword = req.user.password
+    if (req.body.new_password) {
+        newPassword = await bcrypt.hash(req.body.new_password, 10)
+    }
+    var Admin = req.user.admin
+    var id = req.user.admin
+
+    if (await bcrypt.compare(req.body.password, req.user.password)) {
+        rename_file(`./Ressources/DB/profil_img/${req.user.username}_pp.png`, `./Ressources/DB/profil_img/${newUsername}_pp.png`)
+
+        users[act_user] = {
+            username: newUsername,
+            password: newPassword,
+            email: newEmail,
+            admin: Admin,
+            id: id,
+            birthday: newBirthday,
+            theme: newTheme
+        }
+        console.log(users[act_user])
+
+        req.logOut((err) => {
+            if (err) {
+                return next(err)
+            }
+            is_user_existing = " "
+            res.redirect('/')
+        })
+    } else {
+        res.redirect('/preferences')
+        return
+    }
 })
 
 app.delete('/logout', checkAuthenticated, (req, res, next) => {
