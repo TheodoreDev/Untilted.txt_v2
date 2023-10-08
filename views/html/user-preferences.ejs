@@ -34,10 +34,24 @@
                 <form action="" method="POST">
                     <div class="one_pref">
                         <div class="now">
+                            <h3>Username :</h3>
+                            <p><%= name %></p>
+                        </div>
+                        <input type="text" name="username" class="all-input" value=<%= name %>>
+                    </div>
+                    <div class="one_pref">
+                        <div class="now">
+                            <h3>Email :</h3>
+                            <p><%= email %></p>
+                        </div>
+                        <input type="email" name="email" class="all-input" value=<%= email %>>
+                    </div>
+                    <div class="one_pref">
+                        <div class="now">
                             <h3>Birthday :</h3>
                             <p><%= birthday %></p>
                         </div>
-                        <input type="date" name="birthday" class="date_input" value=<%= birthday %>>
+                        <input type="date" name="birthday" class="all-input" value=<%= birthday %>>
                     </div>
                     <div class="one_pref">
                         <div class="now">
@@ -55,7 +69,22 @@
                             <span></span>
                         </label>
                     </div>
+                    <div class="one_pref">
+                        <div class="now">
+                            <h3>Password :</h3>
+                        </div>
+                        <div class="inputs">
+                            <input type="password" name="password" class="all-input" placeholder="old password">
+                            <input type="password" name="new-password" class="all-input" placeholder="new password">
+                        </div>
+                    </div>
                 </form>
+            </div>
+            <hr>
+            <div class="delete-account">
+                <h3>Delete your account.</h3>
+                <br>
+                <div class="button_delete">DELETE</div>
             </div>
         </div>
     </div>

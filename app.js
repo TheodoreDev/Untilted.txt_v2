@@ -104,6 +104,7 @@ app.get('/preferences', checkAuthenticated, async (req, res) => {
         birthday: req.user.birthday,
         checkbox: checkbox,
         theme: req.user.theme,
+        email: req.user.email,
     })
 })
 
@@ -162,7 +163,7 @@ app.post('/upload_pp', checkAuthenticated, upload.single("file_upload"), (req, r
     res.redirect('/preferences')
 })
 
-app.delete('/logout', (req, res, next) => {
+app.delete('/logout', checkAuthenticated, (req, res, next) => {
     req.logOut((err) => {
         if (err) {
             return next(err)
