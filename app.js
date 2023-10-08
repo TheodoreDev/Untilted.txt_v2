@@ -65,7 +65,9 @@ db.all('SELECT * FROM user', [], (error, rows) => {
             password: row.password,
             email: row.email,
             admin: row.admin,
-            id: row.id
+            id: row.id,
+            birthday: row.birthday,
+            theme: row.theme
         })
     })
 })
@@ -81,12 +83,27 @@ app.get('/', checkNotAuthenticated, (req, res) => {
 
 app.get('/home', checkAuthenticated, (req, res) => {
     var is_img_profile = is_file_existing(req.user.username)
-    res.render("./html/home.ejs", {name: req.user.username, user_type: req.user.admin, pp_status: is_img_profile})
+    res.render("./html/home.ejs", {
+        name: req.user.username, 
+        user_type: req.user.admin, 
+        pp_status: is_img_profile,
+        theme: req.user.theme,
+    })
 })
 
 app.get('/preferences', checkAuthenticated, async (req, res) => {
+    var checkbox = " "
     var is_img_profile = is_file_existing(req.user.username)
-    res.render("./html/user-preferences.ejs", {name: req.user.username, user_type: req.user.admin, pp_status: is_img_profile})
+    if (req.user.theme == "1") {
+        checkbox = "checked"
+    }
+    res.render("./html/user-preferences.ejs", {
+        name: req.user.username, 
+        user_type: req.user.admin, 
+        pp_status: is_img_profile,
+        birthday: req.user.birthday,
+        checkbox: checkbox,
+    })
 })
 
 app.post('/login', checkNotAuthenticated, passport.authenticate("local", {
@@ -108,7 +125,9 @@ app.post('/register', checkNotAuthenticated, async (req, res) => {
                         password: row.password,
                         email: row.email,
                         admin: row.admin,
-                        id: row.id
+                        id: row.id,
+                        birthday: row.birthday,
+                        theme: row.theme
                     })
                 }
             })
@@ -124,10 +143,12 @@ app.post('/register', checkNotAuthenticated, async (req, res) => {
                 username: req.body.username,
                 password: hashedPassword,
                 email: req.body.email,
-                admin: 1,
+                admin: 0,
                 id: id,
+                birthday: null,
+                theme: 0
             })
-            db.all(`INSERT INTO "user" VALUES ("${req.body.username}", "${hashedPassword}", "${req.body.email}", 0, "${id}")`)
+            db.all(`INSERT INTO "user" VALUES ("${req.body.username}", "${hashedPassword}", "${req.body.email}", 0, "${id}", ${null}, 0)`)
             is_user_existing = "User well created"
             res.redirect('/')
         }

@@ -18,6 +18,26 @@ close_popup_pp.addEventListener("click", () => {
     overlay_pp_popup.classList.remove("active")
 })
 
+const theme_switcher = document.querySelector('.theme-switcher');
+
+if (theme_switcher.checked) {
+    document.body.classList.remove("light-theme")
+    document.body.classList.add("dark-theme")
+} else {
+    document.body.classList.remove("dark-theme")
+    document.body.classList.add("light-theme")
+}
+theme_switcher.addEventListener("click", () => {
+    if (theme_switcher.checked) {
+        document.body.classList.remove("light-theme")
+        document.body.classList.add("dark-theme")
+    } else {
+        document.body.classList.remove("dark-theme")
+        document.body.classList.add("light-theme")
+    }
+})
+
+
 var actual_user = document.querySelector(".UserName").textContent
 var profil_imgs = document.querySelectorAll(".pp_img")
 var is_pp = document.querySelector(".pp-status").textContent

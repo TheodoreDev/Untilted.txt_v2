@@ -5,11 +5,19 @@
     font-family: 'Poppins', sans-serif;
 }
 
+body {
+    background: var(--bgcolor);
+}
+
 .container {
     display: flex;
+    position: absolute;
     width: 100%;
+    height: 100%;
     justify-content: center;
-    padding-top: 20px;
+    align-items: center;
+    background: var(--bgcolor);
+    color: var(--fontcolor);
 }
 
 .QUIT {
@@ -21,14 +29,15 @@
 
 .QUIT i {
     font-size: 40px;
-    color: black;
+    color: var(--fontcolor);
 }
 
 .preferences {
     width: 50%;
-    border: 2px solid rgb(172, 172, 172);
+    height: auto;
+    border: 2px solid var(--bordercolor);
     border-radius: 20px;
-    box-shadow: 10px 10px 10px #d1d9e6, -10px -10px 10px #f9f9f9;
+    box-shadow: 10px 10px 10px var(--shadowcolor1), -10px -10px 10px var(--shadowcolor2);
     transition: all 0.2s ease;
 }
 
@@ -36,12 +45,13 @@ h1 {
     width: 100%;
     text-align: center;
     padding: 20px;
-    color: rgb(68, 68, 68);
+    color: var(--titlecolor);
 }
 
 .profile {
     display: flex;
     justify-content: center;
+    padding-bottom: 20px;
 }
 
 .change_profil_img {
@@ -89,8 +99,8 @@ h1 {
     opacity: 0.5;
 }
 
-.change_photo_overlay i.active {
-    font-size: 50px;
+.change_photo_overlay.active i {
+    font-size: 40px;
 }
 
 .overlay {
@@ -110,9 +120,9 @@ h1 {
 .pp_form_popup {
     height: 90%;
     width: 40%;
-    background: white;
-    color: black;
-    border: 2px solid rgb(109, 109, 109);
+    background: var(--bgcolor);
+    color: var(--fontcolor);
+    border: 2px solid var(--bordercolor);
     border-radius: 30px;
     transition: all 0.2s ease;
 }
@@ -169,7 +179,7 @@ h1 {
 
 .pp_form_popup .close .circle_close {
     cursor: pointer;
-    border: 2px solid black;
+    border: 2px solid var(--fontcolor);
     border-radius: 50%;
     height: 44px;
 }
@@ -181,6 +191,77 @@ h1 {
 .overlay.active {
     visibility: visible;
     opacity: 1;
+}
+
+.other_pref {
+    padding-top: 30px;
+}
+
+.one_pref {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-bottom: 25px;
+}
+
+.one_pref .now {
+    display: flex;
+    align-items: center;
+}
+
+.one_pref .now p {
+    padding-left: 5px;
+}
+
+.switch {
+	display: inline-block;
+	position: relative;
+	width: 70px;
+	height: 40px;
+	cursor: pointer;
+	overflow: hidden;
+}
+
+.switch input {
+	position: absolute;
+	top: -30px;
+	left: -30px;
+	width: 0;
+	height: 0;
+}
+
+.switch input + span {
+    position: absolute;
+   top: 0;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   background: #99b4df;
+   border-radius: 20px;
+   transition: all 0.5s;
+}
+
+.switch input:checked + span {
+	background: #051125;
+}
+
+.switch input + span:before {
+	content: "";
+	display: inline-block;
+	position: absolute;
+	top: 50%;
+	left: 4px;
+	width: 32px;
+	height: 32px;
+	background: yellow;
+	border-radius: 50%;
+	transform: translateY(-50%);
+	transition: all .5s;
+}
+
+.switch input:checked + span:before {
+    background: rgb(223, 217, 217);
+	left: 34px;
 }
 
 @media (max-width: 1000px){
@@ -207,4 +288,32 @@ h1 {
     .pp_form_popup {
         width: 100%;
     }
+}
+
+.light-theme {
+    --bgcolor: var(--white);
+    --fontcolor: var(--black);
+    --titlecolor: var(--c444444);
+    --shadowcolor1: var(--d1d9e6);
+    --shadowcolor2: var(--white);
+    --bordercolor: var(--acacac);
+}
+
+.dark-theme {
+    --bgcolor: var(--greyDark);
+    --fontcolor: var(--white);
+    --titlecolor: var(--white);
+    --shadowcolor1: var(--c1b1717);
+    --shadowcolor2: var(--black);
+    --bordercolor: var(--black);
+}
+
+:root {
+    --white: white;
+    --greyDark: rgb(22, 22, 22);
+    --black: black;
+    --d1d9e6: #d1d9e6;
+    --c1b1717: #1b1717;
+    --acacac: rgb(172, 172, 172);
+    --c444444: rgb(68, 68, 68);
 }

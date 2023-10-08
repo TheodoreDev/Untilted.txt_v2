@@ -5,6 +5,10 @@
     font-family: 'Poppins', sans-serif;
 }
 
+body {
+    background: var(--bgcolor);
+}
+
 .overlay {
     visibility: hidden;
     position: fixed;
@@ -263,6 +267,10 @@
     font-size: 12px;
 }
 
+.theme-indicator {
+    display: none;
+}
+
 .sidebar .profil .form .button_disconnect {
     margin-left: 10px;
     border: none;
@@ -346,4 +354,32 @@
     .sidebar .profil .type-user {
         display: none;
     }
+}
+
+.light-theme {
+    --bgcolor: var(--white);
+    --fontcolor: var(--black);
+    --titlecolor: var(--c444444);
+    --shadowcolor1: var(--d1d9e6);
+    --shadowcolor2: var(--white);
+    --bordercolor: var(--acacac);
+}
+
+.dark-theme {
+    --bgcolor: var(--greyDark);
+    --fontcolor: var(--white);
+    --titlecolor: var(--white);
+    --shadowcolor1: var(--c1b1717);
+    --shadowcolor2: var(--black);
+    --bordercolor: var(--black);
+}
+
+:root {
+    --white: white;
+    --greyDark: rgb(22, 22, 22);
+    --black: black;
+    --d1d9e6: #d1d9e6;
+    --c1b1717: #1b1717;
+    --acacac: rgb(172, 172, 172);
+    --c444444: rgb(68, 68, 68);
 }
