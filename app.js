@@ -168,6 +168,7 @@ app.post('/update-preferences', checkAuthenticated, async (req, res) => {
     const act_user = users.indexOf(users.find(user => user.username === req.user.username))
 
     var newUsername = req.user.username
+    const oldUsername = req.user.username
     if (req.body.username) {
         newUsername = req.body.username
     }
@@ -190,7 +191,7 @@ app.post('/update-preferences', checkAuthenticated, async (req, res) => {
         newPassword = await bcrypt.hash(req.body.new_password, 10)
     }
     var Admin = req.user.admin
-    var id = req.user.admin
+    var id = req.user.id
 
     if (await bcrypt.compare(req.body.password, req.user.password)) {
         rename_file(`./Ressources/DB/profil_img/${req.user.username}_pp.png`, `./Ressources/DB/profil_img/${newUsername}_pp.png`)
@@ -204,8 +205,11 @@ app.post('/update-preferences', checkAuthenticated, async (req, res) => {
             birthday: newBirthday,
             theme: newTheme
         }
-        console.log(users[act_user])
-
+        const sql = db.run(`UPDATE "user"
+                SET username = '${newUsername}', password = '${newPassword}', email = '${newEmail}', admin = ${Admin}, id = '${id}', birthday = '${newBirthday}', theme = ${newTheme} 
+                WHERE id = '${id}'`)
+        rename_file(`./Ressources/DB/profil_img/${oldUsername}_pp.png`, `./Ressources/DB/profil_img/${newUsername}_pp.png`)
+        
         req.logOut((err) => {
             if (err) {
                 return next(err)

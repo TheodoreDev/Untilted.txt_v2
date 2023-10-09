@@ -328,6 +328,11 @@ h1 {
         width: 100%;
     }
 }
+@media (max-width: 480px){
+    .one_pref .now p {
+        display: none;
+    }
+}
 
 .light-theme {
     --bgcolor: var(--white);
