@@ -116,6 +116,7 @@ h1 {
 }
 
 .pp_form_popup {
+    visibility: hidden;
     height: 90%;
     width: 40%;
     background: var(--bgcolor);
@@ -123,6 +124,10 @@ h1 {
     border: 2px solid var(--bordercolor);
     border-radius: 30px;
     transition: all 0.2s ease;
+}
+
+.pp_form_popup.active {
+    visibility: visible;
 }
 
 .pp_form_popup .pp {
@@ -303,8 +308,25 @@ h1 {
     cursor: pointer;
 }
 
+.delete_form_popup {
+    height: 90%;
+    width: 40%;
+    background: var(--bgcolor);
+    color: var(--fontcolor);
+    border: 2px solid var(--bordercolor);
+    border-radius: 30px;
+    transition: all 0.2s ease;
+}
+
+.delete_form_popup.active {
+    visibility: visible;
+}
+
 @media (max-width: 1000px){
     .pp_form_popup {
+        width: 60%;
+    }
+    .delete_form_popup {
         width: 60%;
     }
 }
@@ -317,6 +339,9 @@ h1 {
     .pp_form_popup {
         width: 80%;
     }
+    .delete_form_popup {
+        width: 80%;
+    }
 }
 @media (max-width: 650px){
     .preferences {
@@ -325,6 +350,9 @@ h1 {
 }
 @media (max-width: 550px){
     .pp_form_popup {
+        width: 100%;
+    }
+    .delete_form_popup {
         width: 100%;
     }
 }
