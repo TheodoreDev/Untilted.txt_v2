@@ -6,7 +6,10 @@
     <title>Untilted.txt | Preferences</title>
     <link rel="icon" href="Untilted_logo.ico">
 
-    <link rel="stylesheet" href="user-preferences.css">
+    <link rel="stylesheet" href="/user-preferences/user-preferences.css">
+    <link rel="stylesheet" href="/user-preferences/responsive.css">
+    <link rel="stylesheet" href="/user-preferences/overlays.css">
+    <link rel="stylesheet" href="/user-preferences/variables.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -110,8 +113,25 @@
                 <div class="circle_close"><i class='bx bx-x'></i></div>
             </div>
         </div>
+    </div>
+    <div class="overlay_delete">
         <div class="delete_form_popup">
-            
+            <h1>⚠️ Delete your account</h1>
+            <div class="secu">
+                <form action="/delete-account" method="post">
+                    <p>Please enter your password :</p>
+                    <input type="password" name="password" placeholder="Your password">
+                    <br><br>
+                    <p>Please type "{random char}" :</p>
+                    <input type="text" name="verify_char">
+                    <br><br>
+                    <p>Warning ⚠️ : this action is definitive</p>
+                    <button type="submit">Delete</button>
+                </form>
+            </div>
+            <div class="close">
+                <div class="circle_close_delete"><i class='bx bx-x'></i></div>
+            </div>
         </div>
     </div>
     <script src="user-preferences.js"></script>

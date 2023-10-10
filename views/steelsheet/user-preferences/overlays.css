@@ -1,0 +1,170 @@
+.overlay {
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    transition: all 0.2s ease;
+    opacity: 0;
+}
+
+.pp_form_popup {
+    height: 90%;
+    width: 40%;
+    background: var(--bgcolor);
+    color: var(--fontcolor);
+    border: 2px solid var(--bordercolor);
+    border-radius: 30px;
+    transition: all 0.2s ease;
+}
+
+.pp_form_popup .pp {
+    padding-top: 20px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.pp_img {
+    border-radius: 20%;
+}
+
+.pp_form_popup .pp img{
+    height: 150px;
+    width: 150px;
+    object-fit: cover;
+
+}
+
+.pp_form_popup .file {
+    padding-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pp_form_popup .file form {
+    border-radius: 5px;
+    border: 1px solid red;
+    background: salmon;
+    padding: 20px 40px 20px 40px;
+}
+
+.pp_form_popup .file form button {
+    color: white;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 10px;
+    background: green;
+    border: none;
+}
+
+.pp_form_popup .close {
+    width: 100%;
+    margin-top: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pp_form_popup .close .circle_close {
+    cursor: pointer;
+    border: 2px solid var(--fontcolor);
+    border-radius: 50%;
+    height: 44px;
+}
+
+.pp_form_popup .close .circle_close i {
+    font-size: 40px;
+}
+
+.overlay.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.overlay_delete {
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    transition: all 0.2s ease;
+    opacity: 0;
+}
+
+.delete_form_popup {
+    height: 90%;
+    width: 40%;
+    background: var(--bgcolor);
+    color: var(--fontcolor);
+    border: 2px solid var(--bordercolor);
+    border-radius: 30px;
+    transition: all 0.2s ease;
+}
+
+.delete_form_popup .secu {
+    padding-top: 20px;
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+}
+
+.delete_form_popup .secu form {
+    display: grid;
+    justify-content: center;
+}
+
+.delete_form_popup .secu form input {
+    padding: 5px;
+    border: 2px solid var(--fontcolor);
+    background: var(--bgcolor);
+    color: var(--fontcolor);
+    border-radius: 10px;
+}
+
+.delete_form_popup .secu form button {
+    background: red;
+    padding: 10px 25px 10px 25px;
+    border: 2px solid rgb(170, 13, 13);
+    border-radius: 30px;
+    color: white;
+    font-size: 15px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.delete_form_popup .close {
+    width: 100%;
+    margin-top: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.delete_form_popup .close .circle_close_delete {
+    cursor: pointer;
+    border: 2px solid var(--fontcolor);
+    border-radius: 50%;
+    height: 44px;
+}
+
+.delete_form_popup .close .circle_close_delete i {
+    font-size: 40px;
+}
+
+.overlay_delete.active {
+    opacity: 1;
+    visibility: visible;
+}

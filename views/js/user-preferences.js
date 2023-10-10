@@ -10,21 +10,23 @@ change_pp.addEventListener("mouseout", () => {
 
 let close_popup_pp = document.querySelector(".circle_close")
 let overlay_pp_popup = document.querySelector(".overlay")
-let popup_pp = document.querySelector(".pp_form_popup")
-let delete_button = document.querySelector(".button_delete")
-let popup_delete = document.querySelector(".delete_form_popup")
 
 change_pp.addEventListener("click", () => {
     overlay_pp_popup.classList.add("active")
-    popup_pp.classList.add("active")
 })
 close_popup_pp.addEventListener("click", () => {
     overlay_pp_popup.classList.remove("active")
-    popup_pp.classList.remove("active")
 })
+
+let delete_button = document.querySelector(".button_delete")
+let popup_delete = document.querySelector(".overlay_delete")
+let close_delete_popup = document.querySelector(".circle_close_delete")
+
 delete_button.addEventListener("click", () => {
-    overlay_pp_popup.classList.add("active")
     popup_delete.classList.add("active")
+})
+close_delete_popup.addEventListener("click", () => {
+    popup_delete.classList.remove("active")
 })
 
 const theme_switcher = document.querySelector('.theme-switcher');
