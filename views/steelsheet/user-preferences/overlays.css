@@ -104,7 +104,7 @@
 
 .delete_form_popup {
     height: 90%;
-    width: 40%;
+    width: 60%;
     background: var(--bgcolor);
     color: var(--fontcolor);
     border: 2px solid var(--bordercolor);

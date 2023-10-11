@@ -27,6 +27,16 @@ for(var i = 0; i < close_popup.length; i++) {
     })
 }
 
+let preferences_link = document.querySelector(".preferences")
+let parametre_img = document.querySelector(".preferences_engrenage")
+
+preferences_link.addEventListener("mouseover", () => {
+    parametre_img.classList.add("active")
+})
+preferences_link.addEventListener("mouseout", () => {
+    parametre_img.classList.remove("active")
+})
+
 var actual_user = document.querySelector(".profil-name").textContent
 var profil_imgs = document.querySelectorAll(".pp_img")
 var is_pp = document.querySelector(".pp-status").textContent

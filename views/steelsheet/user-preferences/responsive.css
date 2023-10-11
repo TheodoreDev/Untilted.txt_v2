@@ -1,21 +1,25 @@
 @media (max-width: 1000px){
-    .pp_form_popup {
-        width: 60%;
-    }
-    .delete_form_popup {
+    .overlay .pp_form_popup {
         width: 60%;
     }
 }
-@media (max-width: 800px){
+@media (max-width: 980px){
     .preferences {
         width: 70%;
     }
 }
+
+@media (max-width: 850px) {
+    .overlay_delete .delete_form_popup {
+        width: 70%;
+    }
+}
+
 @media (max-width: 740px){
-    .pp_form_popup {
+    .overlay .pp_form_popup {
         width: 80%;
     }
-    .delete_form_popup {
+    .overlay_delete .delete_form_popup {
         width: 80%;
     }
 }
@@ -23,13 +27,19 @@
     .preferences {
         width: 100%;
     }
+    .overlay_delete .delete_form_popup {
+        width: 90%;
+    }
 }
 @media (max-width: 550px){
-    .pp_form_popup {
+    .overlay .pp_form_popup {
         width: 100%;
     }
-    .delete_form_popup {
+    .overlay_delete .delete_form_popup {
         width: 100%;
+    }
+    .delete_form_popup .secu form {
+        font-size: 10px;
     }
 }
 @media (max-width: 480px){
