@@ -120,9 +120,9 @@
             <div class="secu">
                 <form action="/delete-account" method="post">
                     <p>Please enter your password :</p>
-                    <input type="password" name="password" placeholder="Your password">
+                    <input type="password" name="password_to_delete" placeholder="Your password">
                     <br><br>
-                    <p>Please type "{random char}" :</p>
+                    <p>Please type "<%= name %>/<%= email %>" :</p>
                     <input type="text" name="verify_char">
                     <br><br>
                     <p>Warning ⚠️ : this action is definitive</p>

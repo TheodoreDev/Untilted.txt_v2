@@ -24,8 +24,9 @@ initializePassport(
   username => users.find(user => user.username === username),
   id => users.find(user => user.id === id)
 )
-const is_file_existing = require("./functions/is-file-existing")
-const rename_file = require("./functions/rename-file")
+const is_file_existing = require("./functions/FileSysteme/is-file-existing")
+const rename_file = require("./functions/FileSysteme/rename-file")
+const delete_file = require("./functions/FileSysteme/delete-file")
 const checkAuthenticated = require("./functions/Authenticate/checkAuthenticated")
 const checkNotAuthenticated = require("./functions/Authenticate/checkNotAuthenticated")
 
@@ -194,7 +195,6 @@ app.post('/update-preferences', checkAuthenticated, async (req, res) => {
     var id = req.user.id
 
     if (await bcrypt.compare(req.body.password, req.user.password)) {
-        rename_file(`./Ressources/DB/profil_img/${req.user.username}_pp.png`, `./Ressources/DB/profil_img/${newUsername}_pp.png`)
 
         users[act_user] = {
             username: newUsername,
@@ -205,10 +205,13 @@ app.post('/update-preferences', checkAuthenticated, async (req, res) => {
             birthday: newBirthday,
             theme: newTheme
         }
-        const sql = db.run(`UPDATE "user"
+        db.run(`UPDATE "user"
                 SET username = '${newUsername}', password = '${newPassword}', email = '${newEmail}', admin = ${Admin}, id = '${id}', birthday = '${newBirthday}', theme = ${newTheme} 
                 WHERE id = '${id}'`)
-        rename_file(`./Ressources/DB/profil_img/${oldUsername}_pp.png`, `./Ressources/DB/profil_img/${newUsername}_pp.png`)
+        const is_img_profile = is_file_existing(oldUsername)
+        if (is_img_profile === "true") {
+            rename_file(`./Ressources/DB/profil_img/${oldUsername}_pp.png`, `./Ressources/DB/profil_img/${newUsername}_pp.png`)
+        }
         
         req.logOut((err) => {
             if (err) {
@@ -220,6 +223,26 @@ app.post('/update-preferences', checkAuthenticated, async (req, res) => {
     } else {
         res.redirect('/preferences')
         return
+    }
+})
+
+app.post('/delete-account', checkAuthenticated, async (req, res) => {
+    const user_to_delete = users.indexOf(users.find(user => user.username === req.user.username))
+    if (await bcrypt.compare(req.body.password_to_delete, req.user.password)) {
+        if (req.body.verify_char == `${req.user.username}/${req.user.email}`) {
+            users.splice(user_to_delete, 1)
+            db.run(`DELETE FROM "user" WHERE username = "${req.user.username}"`)
+            if (is_file_existing(req.user.username) === "true") {
+                delete_file(req.user.username)
+            }
+            req.logOut((err) => {
+                if (err) {
+                    return next(err)
+                }
+                is_user_existing = " "
+                res.redirect('/')
+            })
+        }
     }
 })
 
