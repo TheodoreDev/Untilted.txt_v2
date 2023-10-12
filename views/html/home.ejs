@@ -67,11 +67,13 @@
                     <div class="info">
                         <div class="profil-name"><%= name %></div>
                         <div class="type-user">
-                            <% if(user_type === 1) { %>
-                                Admin
-                            <% } else { %>
-                                User
-                            <% } %>
+                            <a href="/dashboard" class="dashboard">
+                                <% if(user_type === 1) { %>
+                                    Admin
+                                <% } else { %>
+                                    User
+                                <% } %>
+                            </a>
                         </div>
                         <div class="theme-indicator"><%= theme %></div>
                     </div>

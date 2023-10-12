@@ -1,3 +1,12 @@
+@media (max-width: 1300px){
+    .overlay .pp_form_popup {
+        width: 40%;
+    }
+    .overlay_delete .delete_form_popup {
+        width: 60%;
+    }
+}
+
 @media (max-width: 1000px){
     .overlay .pp_form_popup {
         width: 60%;

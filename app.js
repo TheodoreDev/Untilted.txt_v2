@@ -110,6 +110,14 @@ app.get('/preferences', checkAuthenticated, async (req, res) => {
     })
 })
 
+app.get('/dashboard', checkAuthenticated, async (req, res) => {
+    if (req.user.admin == 1) {
+        res.render("./html/dashboard.ejs")
+    } else {
+        res.redirect('/home')
+    }
+})
+
 app.post('/login', checkNotAuthenticated, passport.authenticate("local", {
     successRedirect: '/home',
     failureRedirect: '/',
