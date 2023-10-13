@@ -1,5 +1,6 @@
 .light-theme {
     --bgcolor: var(--white);
+    --containercolor: var(--white);
     --fontcolor: var(--black);
     --titlecolor: var(--c444444);
     --shadowcolor1: var(--d1d9e6);
@@ -9,19 +10,22 @@
 
 .dark-theme {
     --bgcolor: var(--greyDark);
+    --containercolor: var(--grey);
     --fontcolor: var(--white);
     --titlecolor: var(--white);
-    --shadowcolor1: var(--c1b1717);
-    --shadowcolor2: var(--black);
+    --shadowcolor1: var(--transparent);
+    --shadowcolor2: var(--transparent);
     --bordercolor: var(--black);
 }
 
 :root {
     --white: white;
     --greyDark: rgb(22, 22, 22);
+    --grey: rgb(29, 29, 29);
     --black: black;
     --d1d9e6: #d1d9e6;
     --c1b1717: #1b1717;
     --acacac: rgb(172, 172, 172);
     --c444444: rgb(68, 68, 68);
+    --transparent: transparent
 }

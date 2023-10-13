@@ -379,34 +379,3 @@ body {
         display: none;
     }
 }
-
-.light-theme {
-    --bgcolor: var(--white);
-    --fontcolor: var(--black);
-    --titlecolor: var(--c444444);
-    --shadowcolor1: var(--d1d9e6);
-    --shadowcolor2: var(--white);
-    --bordercolor: var(--acacac);
-    --overlaycolor: var(--d8d8d8);
-}
-
-.dark-theme {
-    --bgcolor: var(--greyDark);
-    --fontcolor: var(--white);
-    --titlecolor: var(--white);
-    --shadowcolor1: var(--c1b1717);
-    --shadowcolor2: var(--black);
-    --bordercolor: var(--black);
-    --overlaycolor: var(--black);
-}
-
-:root {
-    --white: white;
-    --greyDark: rgb(22, 22, 22);
-    --black: black;
-    --d1d9e6: #d1d9e6;
-    --c1b1717: #1b1717;
-    --acacac: rgb(172, 172, 172);
-    --c444444: rgb(68, 68, 68);
-    --d8d8d8: rgb(216, 216, 216);
-}
