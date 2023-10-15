@@ -6,6 +6,7 @@
     --shadowcolor1: var(--d1d9e6);
     --shadowcolor2: var(--white);
     --bordercolor: var(--acacac);
+    --overlaycolor: var(--acacac)
 }
 
 .dark-theme {
@@ -16,6 +17,7 @@
     --shadowcolor1: var(--transparent);
     --shadowcolor2: var(--transparent);
     --bordercolor: var(--black);
+    --overlaycolor: var(--black)
 }
 
 :root {

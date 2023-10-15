@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: var(--bgcolor);
+}
+
+.theme-indicator {
+    display: none;
+}
+
+.QUIT {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 20px;
+    color: var(--fontcolor);
+}
+
+.QUIT i {
+    font-size: 40px;
+    color: var(--fontcolor);
+}
