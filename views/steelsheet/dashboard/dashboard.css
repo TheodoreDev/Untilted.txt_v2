@@ -257,22 +257,16 @@ main .analyse svg circle{
     transform: translate(5px, 5px);
 }
 
-main .analyse .sales svg circle{
-    stroke: var(--color-success);
-    stroke-dashoffset: -30;
-    stroke-dasharray: 200;
-}
-
 main .analyse .visits svg circle{
     stroke: var(--color-danger);
-    stroke-dashoffset: -30;
-    stroke-dasharray: 200;
+    stroke-dasharray: 440;
+    stroke-dashoffset: 340;
 }
 
 main .analyse .searches svg circle{
     stroke: var(--color-primary);
-    stroke-dashoffset: -30;
-    stroke-dasharray: 200;
+    stroke-dasharray: 440;
+    stroke-dashoffset: 1;
 }
 
 main .analyse .progresss .percentage{
@@ -434,6 +428,7 @@ main .recent-orders a{
 .right-section .user-profile img{
     width: 11rem;
     height: auto;
+    margin: 7%;
     margin-bottom: 0.8rem;
     border-radius: 50%;
 }
