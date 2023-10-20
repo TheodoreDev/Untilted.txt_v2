@@ -1,20 +1,20 @@
 const Orders = [
     {
-        productName: 'JavaScript Tutorial',
-        productNumber: '85743',
-        paymentStatus: 'Due',
-        status: 'Pending'
+        uploadName: 'Node js simple app',
+        uploadNumber: '85743',
+        User: 'Ted',
+        status: 'Active'
     },
     {
-        productName: 'CSS Full Course',
-        productNumber: '97245',
-        paymentStatus: 'Refunded',
+        uploadName: 'Snake in python',
+        uploadNumber: '97245',
+        User: 'Maxime',
         status: 'Declined'
     },
     {
-        productName: 'Flex-Box Tutorial',
-        productNumber: '36452',
-        paymentStatus: 'Paid',
-        status: 'Active'
+        uploadName: 'Mod Minecraft project',
+        uploadNumber: '36452',
+        User: 'LargonGaming',
+        status: 'Pending'
     },
 ]

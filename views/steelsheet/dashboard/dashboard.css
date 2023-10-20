@@ -104,105 +104,6 @@ b{
     grid-template-columns: 12rem auto 23rem;
 }
 
-aside{
-    height: 100vh;
-}
-
-aside .toggle{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 1.4rem;
-}
-
-aside .toggle .logo{
-    display: flex;
-    gap: 0.5rem;
-}
-
-aside .toggle .logo img{
-    width: 2rem;
-    height: 2rem;
-}
-
-aside .toggle .close{
-    padding-right: 1rem;
-    display: none;
-}
-
-aside .sidebar{
-    display: flex;
-    flex-direction: column;
-    background-color: var(--color-white);
-    box-shadow: var(--box-shadow);
-    border-radius: 15px;
-    height: 88vh;
-    position: relative;
-    top: 1.5rem;
-    transition: all 0.3s ease;
-}
-
-aside .sidebar:hover{
-    box-shadow: none;
-}
-
-aside .sidebar a{
-    display: flex;
-    align-items: center;
-    color: var(--color-info-dark);
-    height: 3.7rem;
-    gap: 1rem;
-    position: relative;
-    margin-left: 2rem;
-    transition: all 0.3s ease;
-}
-
-aside .sidebar a span{
-    font-size: 1.6rem;
-    transition: all 0.3s ease;
-}
-
-aside .sidebar a:last-child{
-    position: absolute;
-    bottom: 2rem;
-    width: 100%;
-}
-
-aside .sidebar a.active{
-    width: 100%;
-    color: var(--color-primary);
-    background-color: var(--color-light);
-    margin-left: 0;
-}
-
-aside .sidebar a.active::before{
-    content: '';
-    width: 6px;
-    height: 18px;
-    background-color: var(--color-primary);
-}
-
-aside .sidebar a.active span{
-    color: var(--color-primary);
-    margin-left: calc(1rem - 3px);
-}
-
-aside .sidebar a:hover{
-    color: var(--color-primary);
-}
-
-aside .sidebar a:hover span{
-    margin-left: 0.6rem;
-}
-
-aside .sidebar .message-count{
-    background-color: var(--color-danger);
-    padding: 2px 6px;
-    color: var(--color-white);
-    font-size: 11px;
-    border-radius: var(--border-radius-1);
-}
-
 main{
     margin-top: 1.4rem;
 }
@@ -259,14 +160,16 @@ main .analyse svg circle{
 
 main .analyse .visits svg circle{
     stroke: var(--color-danger);
-    stroke-dasharray: 440;
-    stroke-dashoffset: 340;
+    stroke-dasharray: 226;
+    stroke-dashoffset: 226;
+    transition: all 0.3 ease-out;
 }
 
 main .analyse .searches svg circle{
     stroke: var(--color-primary);
-    stroke-dasharray: 440;
-    stroke-dashoffset: 1;
+    stroke-dasharray: 226;
+    stroke-dashoffset: 226;
+    transition: all 0.3 ease-out;
 }
 
 main .analyse .progresss .percentage{
@@ -435,80 +338,4 @@ main .recent-orders a{
 
 .right-section .user-profile h2{
     margin-bottom: 0.2rem;
-}
-
-.right-section .reminders{
-    margin-top: 2rem;
-}
-
-.right-section .reminders .header{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 0.8rem;
-}
-
-.right-section .reminders .header span{
-    padding: 10px;
-    box-shadow: var(--box-shadow);
-    background-color: var(--color-white);
-    border-radius: 50%;
-}
-
-.right-section .reminders .notification{
-    background-color: var(--color-white);
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 0.7rem;
-    padding: 1.4rem var(--card-padding);
-    border-radius: var(--border-radius-2);
-    box-shadow: var(--box-shadow);
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.right-section .reminders .notification:hover{
-    box-shadow: none;
-}
-
-.right-section .reminders .notification .content{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0;
-    width: 100%;
-}
-
-.right-section .reminders .notification .icon{
-    padding: 0.6rem;
-    color: var(--color-white);
-    background-color: var(--color-success);
-    border-radius: 20%;
-    display: flex;
-}
-
-.right-section .reminders .notification.deactive .icon{
-    background-color: var(--color-danger);
-}
-
-.right-section .reminders .add-reminder{
-    background-color: var(--color-white);
-    border: 2px dashed var(--color-primary);
-    color: var(--color-primary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-}
-
-.right-section .reminders .add-reminder:hover{
-    background-color: var(--color-primary);
-    color: white;
-}
-
-.right-section .reminders .add-reminder div{
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
 }
