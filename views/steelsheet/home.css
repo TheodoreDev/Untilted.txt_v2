@@ -366,16 +366,36 @@ body {
         display: none;
     }
 
+    .type-user {
+        display: block;
+    }
+
     .sidebar .profil {
         width: 78px;
+        display: grid;
     }
 
     .sidebar .profil .profil-content .pp_img {
         padding: 10px;
     }
 
-    .sidebar .profil .profil-name,
-    .sidebar .profil .type-user {
+    .type-user {
+        display: flex;
+        justify-content: center;
+        margin-top: 5px;
+    }
+
+    .profil .form {
+        display: flex;
+        justify-content: center;
+        margin-top: 5px;
+    }
+
+    .sidebar .profil .form .button_disconnect {
+        margin: 0;
+    }
+
+    .sidebar .profil .profil-name {
         display: none;
     }
 }
