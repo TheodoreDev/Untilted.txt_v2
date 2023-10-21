@@ -62,6 +62,7 @@ db.all('SELECT * FROM user', [], (error, rows) => {
         throw error
     }
     rows.forEach((row) => {
+        var is_img_profile = is_file_existing(row.username)
         users.push({
             username: row.username,
             password: row.password,
@@ -69,7 +70,8 @@ db.all('SELECT * FROM user', [], (error, rows) => {
             admin: row.admin,
             id: row.id,
             birthday: row.birthday,
-            theme: row.theme
+            theme: row.theme,
+            pp_status: is_img_profile,
         })
     })
 })
@@ -88,7 +90,7 @@ app.get('/home', checkAuthenticated, (req, res) => {
     res.render("./html/home.ejs", {
         name: req.user.username, 
         user_type: req.user.admin, 
-        pp_status: is_img_profile,
+        pp_status: req.user.pp_status,
         theme: req.user.theme,
     })
 })
@@ -102,7 +104,7 @@ app.get('/preferences', checkAuthenticated, async (req, res) => {
     res.render("./html/user-preferences.ejs", {
         name: req.user.username, 
         user_type: req.user.admin, 
-        pp_status: is_img_profile,
+        pp_status: req.user.pp_status,
         birthday: req.user.birthday,
         checkbox: checkbox,
         theme: req.user.theme,
@@ -156,6 +158,7 @@ app.post('/register', checkNotAuthenticated, async (req, res) => {
         } else {
             const id = Date.now().toString()
             const hashedPassword = await bcrypt.hash(req.body.password, 10)
+            var is_img_profile = is_file_existing(row.username)
             users.push({
                 username: req.body.username,
                 password: hashedPassword,
@@ -163,7 +166,8 @@ app.post('/register', checkNotAuthenticated, async (req, res) => {
                 admin: 0,
                 id: id,
                 birthday: null,
-                theme: 0
+                theme: 0,
+                pp_status: is_img_profile,
             })
             db.all(`INSERT INTO "user" VALUES ("${req.body.username}", "${hashedPassword}", "${req.body.email}", 0, "${id}", ${null}, 0)`)
             is_user_existing = "User well created"
@@ -209,6 +213,7 @@ app.post('/update-preferences', checkAuthenticated, async (req, res) => {
 
     if (await bcrypt.compare(req.body.password, req.user.password)) {
 
+        const is_img_profile = is_file_existing(oldUsername)
         users[act_user] = {
             username: newUsername,
             password: newPassword,
@@ -216,12 +221,12 @@ app.post('/update-preferences', checkAuthenticated, async (req, res) => {
             admin: Admin,
             id: id,
             birthday: newBirthday,
-            theme: newTheme
+            theme: newTheme,
+            pp_status: is_img_profile,
         }
         db.run(`UPDATE "user"
                 SET username = '${newUsername}', password = '${newPassword}', email = '${newEmail}', admin = ${Admin}, id = '${id}', birthday = '${newBirthday}', theme = ${newTheme} 
                 WHERE id = '${id}'`)
-        const is_img_profile = is_file_existing(oldUsername)
         if (is_img_profile === "true") {
             rename_file(`./Ressources/DB/profil_img/${oldUsername}_pp.png`, `./Ressources/DB/profil_img/${newUsername}_pp.png`)
         }

@@ -30,5 +30,16 @@ for(var i = 0; i < percentage_analyctics.length; i++) {
     circle.style.strokeDashoffset = `${226 - percentage/100*226}`
 }
 
-var actual_user = document.querySelectorAll(".new-username")
-var profil_imgs = document.querySelectorAll(".pp_img")
+var new_users = document.querySelectorAll(".user")
+
+new_users.forEach((new_user) => {
+    const pp_status = new_user.querySelector(".user-pp-status").textContent
+    const profil_img = new_user.querySelector(".new_user_pp")
+    const username = new_user.querySelector(".new-username").textContent
+    if (pp_status === "true") {
+        var pp_img = `/${username}_pp.png`
+        profil_img.src = pp_img
+    } else {
+        profil_img.src = '/profil-default.png'
+    }
+})

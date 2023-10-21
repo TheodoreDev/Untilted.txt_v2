@@ -225,7 +225,11 @@ main .new-users .user-list .user img{
     width: 5rem;
     height: 5rem;
     margin-bottom: 0.4rem;
-    border-radius: 50%;
+    border-radius: 20%;
+}
+
+main .new-users .user-list .user .user-pp-status {
+    display: none;
 }
 
 main .recent-orders{
