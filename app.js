@@ -116,6 +116,7 @@ app.get('/dashboard', checkAuthenticated, async (req, res) => {
             name: req.user.username, 
             user_type: req.user.admin, 
             theme: req.user.theme,
+            users
         })
     } else {
         res.redirect('/home')

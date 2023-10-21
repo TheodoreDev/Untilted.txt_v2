@@ -29,3 +29,6 @@ for(var i = 0; i < percentage_analyctics.length; i++) {
     const percentage = parseInt(percentage_analyctics[i].textContent)
     circle.style.strokeDashoffset = `${226 - percentage/100*226}`
 }
+
+var actual_user = document.querySelectorAll(".new-username")
+var profil_imgs = document.querySelectorAll(".pp_img")
