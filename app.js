@@ -30,7 +30,7 @@ const delete_file = require("./functions/FileSysteme/delete-file")
 const checkAuthenticated = require("./functions/Authenticate/checkAuthenticated")
 const checkNotAuthenticated = require("./functions/Authenticate/checkNotAuthenticated")
 
-const users = []
+var users = []
 
 app.use(express.static("views/html"));
 app.use(express.static("views/steelsheet"))
@@ -113,10 +113,9 @@ app.get('/preferences', checkAuthenticated, async (req, res) => {
 })
 
 app.get('/dashboard', checkAuthenticated, async (req, res) => {
+    const list = [{Hello: "hello"}]
     if (req.user.admin == 1) {
         res.render("./html/dashboard.ejs", {
-            name: req.user.username, 
-            user_type: req.user.admin, 
             theme: req.user.theme,
             users
         })
